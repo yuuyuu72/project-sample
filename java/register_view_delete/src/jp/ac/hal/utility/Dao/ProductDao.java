@@ -25,7 +25,7 @@ public class ProductDao extends DatabaseAc {
 	}
 
 	public ArrayList<Product> searchProduct() {
-		ArrayList<Product> productList = new ArrayList<Product>();
+		ArrayList<Product> productList = new ArrayList<>();
 		String sql = "select * from kadai04_products";
 		DBConnection();
 		try {
@@ -52,8 +52,7 @@ public class ProductDao extends DatabaseAc {
 		return productList;
 	}
 
-	public int removeProduct(int id) {
-		int errcode = 0;
+	public void removeProduct(int id) {
 		String sql = "delete from kadai04_products where id=?";
 		DBConnection();
 		try {
@@ -70,6 +69,5 @@ public class ProductDao extends DatabaseAc {
 		} finally {
 			DBClose();
 		}
-		return errcode;
 	}
 }

@@ -9,8 +9,6 @@ import jp.ac.hal.utility.Entity.Product;
 import jp.ac.hal.utility.Entity.User;
 
 public class Main {
-	User user;
-	UserDao userDao;
 
 	public static void main(String[] args) {
 		System.out.println("start");
@@ -39,13 +37,11 @@ public class Main {
 					break;
 
 				case "vu":
-					ArrayList<User> list = new ArrayList<>();
 					System.out.println("[ユーザ一覧]");
 					System.out.println("id,mail,name");
-					list.addAll(userDao.searchUser());
-					for(int i=0;i<list.size();i++){
-						User u = list.get(i);
-						System.out.println(u.getId()+","+u.getMail()+","+u.getName());
+					ArrayList<User> list = new ArrayList<>(userDao.searchUser());
+					for (User u : list) {
+						System.out.println(u.getId() + "," + u.getMail() + "," + u.getName());
 					}
 					break;
 
@@ -77,13 +73,11 @@ public class Main {
 					break;
 
 				case "vp":
-					ArrayList<Product> proList = new ArrayList<>();
 					System.out.println("[商品一覧]");
 					System.out.println("id,productName,price,img");
-					proList.addAll(proDao.searchProduct());
-					for(int i=0;i<proList.size();i++){
-						Product p = proList.get(i);
-						System.out.println(p.getId()+","+p.getname()+","+p.getPrice()+","+p.getImg());
+					ArrayList<Product> proList = new ArrayList<>(proDao.searchProduct());
+					for (Product p : proList) {
+						System.out.println(p.getId() + "," + p.getname() + "," + p.getPrice() + "," + p.getImg());
 					}
 					break;
 

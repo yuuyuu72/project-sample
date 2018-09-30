@@ -6,21 +6,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class DatabaseAc {
-	protected Connection conn;
-	protected Statement state;
-	protected ResultSet ret;
-	protected PreparedStatement pstat;
+class DatabaseAc {
+	Connection conn;
+	private Statement state;
+	ResultSet ret;
+	PreparedStatement pstat;
 
-	public static final String url = "jdbc:mysql:///jv34?user=root&useUnicode=true&characterEncoding=utf8";
+	private static final String url = "jdbc:mysql:///jv34?user=root&useUnicode=true&characterEncoding=utf8";
 
-	public DatabaseAc(){
+	DatabaseAc(){
 		this.conn = null;
 		this.state = null;
 		this.pstat = null;
 		this.ret = null;
 	}
-	protected void DBConnection(){
+	void DBConnection(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(url);
@@ -28,7 +28,7 @@ public class DatabaseAc {
 			e.printStackTrace();
 		}
 	}
-	protected void DBClose(){
+	void DBClose(){
 		try{
 			if(ret != null){
 				ret.close();

@@ -24,7 +24,7 @@ public class UserDao extends DatabaseAc {
 	}
 
 	public ArrayList<User> searchUser() {
-		ArrayList<User> userList = new ArrayList<User>();
+		ArrayList<User> userList = new ArrayList<>();
 		String sql = "select * from kadai04_users";
 		DBConnection();
 		try {
